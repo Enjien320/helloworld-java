@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: action/checkout@v6.0.0
+        uses: actions/checkout@v6.0.0
       - name: Setup du JDK
         uses: actions/setup-java@v5.0.0
         with:
