@@ -23,3 +23,12 @@ jobs:
           distribution: zulu
       - name: Nettoyage de maven
         run: mvn clean package -DskipTests
+      - name: Mise en place cache
+        uses: actions/cache@v4.3.0
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: "src/main/"
+          # An explicit key for restoring and saving the cache
+          key: "cache"
+        env:
+          MAVEN_OPTS: "-Dmaven.repo.local=/pom.xml"
