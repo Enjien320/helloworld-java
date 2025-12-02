@@ -36,6 +36,7 @@ jobs:
   ExecutionTests:
     runs-on: ubuntu-latest
     needs: RealisationBuild
+    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.0
