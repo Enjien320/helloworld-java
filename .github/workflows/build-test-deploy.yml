@@ -7,6 +7,7 @@ on:
 
 env:
   PROJECT_VERSION: "1.0.0"
+  MAVEN_OPTS: "-Dmaven.repo.local=/"
 
 jobs:
   RealisationBuild:
@@ -30,5 +31,3 @@ jobs:
           path: "${{ MAVEN_OPTS }}"
           # An explicit key for restoring and saving the cache
           key: "cache"
-        env:
-          MAVEN_OPTS: "-Dmaven.repo.local=/"
