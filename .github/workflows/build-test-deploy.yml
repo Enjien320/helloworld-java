@@ -60,7 +60,7 @@ jobs:
           # Artifact name
           name: "helloword-${{ env.PROJECT_VERSION }}.jar"
           # A file, directory or wildcard pattern that describes what to upload
-          path: "targete/hello-1.0-SNAPSHOT.jar"
+          path: "target/hello-1.0-SNAPSHOT.jar"
       - name: Tests unitaires de maven
         run: mvn test
         env:
