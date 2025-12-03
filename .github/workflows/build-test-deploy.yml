@@ -32,7 +32,7 @@ jobs:
         run: mvn clean package -DskipTests
         env:
           MAVEN_OPTS: "-Dmaven.repo.local=${{ github.workspace }}/.m2/repository"
-      - name: Upload a Build Artifact
+      - name: Mise en place archive JAR
         uses: actions/upload-artifact@v5.0.0
         with:
           # Artifact name
@@ -65,3 +65,15 @@ jobs:
         continue-on-error: true
         env:
           MAVEN_OPTS: "-Dmaven.repo.local=${{ github.workspace }}/.m2/repository"
+
+  DeploimentProjet:
+    runs-on: ubuntu-latest
+    needs: ExecutionTests
+    steps:
+      - name: Telechargement artefact
+        uses: actions/download-artifact@v6.0.0
+        with:
+          # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+          name: "helloword-${{ env.PROJECT_VERSION }}.jar"
+      - name: Deployement du serveur
+        run: echo "Deploying application..."
