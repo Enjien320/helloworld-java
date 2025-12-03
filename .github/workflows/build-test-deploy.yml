@@ -54,7 +54,7 @@ jobs:
           # An explicit key for restoring and saving the cache
           key: "cache"
       - name: Tests unitaires de maven
-        run: mvn test
+        run: mvn test package
         continue-on-error: true
         env:
           MAVEN_OPTS: "-Dmaven.repo.local=${{ github.workspace }}/.m2/repository"
